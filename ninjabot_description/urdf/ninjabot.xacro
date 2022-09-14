@@ -1,0 +1,1093 @@
+<?xml version="1.0" ?>
+<robot name="ninjabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ninjabot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find ninjabot_description)/urdf/ninjabot.trans" />
+<xacro:include filename="$(find ninjabot_description)/urdf/ninjabot.gazebo" />
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.01858191685161786 -6.743398405890817e-05 0.12296427995468712" rpy="0 0 0"/>
+    <mass value="3.4317363765037956"/>
+    <inertia ixx="0.033079" iyy="0.060117" izz="0.085875" ixy="-2.1e-05" iyz="-6e-06" ixz="-0.002304"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FL_caster_frame_link_1">
+  <inertial>
+    <origin xyz="0.011805292454976607 5.5007440675672314e-05 -0.03231039473123115" rpy="0 0 0"/>
+    <mass value="0.11393455555233847"/>
+    <inertia ixx="0.000115" iyy="0.000124" izz="6.8e-05" ixy="-0.0" iyz="0.0" ixz="3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.159 0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FL_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.159 0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FL_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FR_caster_frame_link_1">
+  <inertial>
+    <origin xyz="0.011805292454975524 5.500744067538088e-05 -0.032310394731231665" rpy="0 0 0"/>
+    <mass value="0.11393455555233847"/>
+    <inertia ixx="0.000115" iyy="0.000124" izz="6.8e-05" ixy="-0.0" iyz="0.0" ixz="3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.159 -0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FR_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.159 -0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FR_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RL_caster_frame_link_1">
+  <inertial>
+    <origin xyz="0.01180529245497669 5.50074406752421e-05 -0.032310394731231734" rpy="0 0 0"/>
+    <mass value="0.11393455555233847"/>
+    <inertia ixx="0.000115" iyy="0.000124" izz="6.8e-05" ixy="-0.0" iyz="0.0" ixz="3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.159 -0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RL_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.159 -0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RL_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RR_caster_frame_link_1">
+  <inertial>
+    <origin xyz="0.01180529245497669 5.500744067578334e-05 -0.032310394731231054" rpy="0 0 0"/>
+    <mass value="0.11393455555233847"/>
+    <inertia ixx="0.000115" iyy="0.000124" izz="6.8e-05" ixy="-0.0" iyz="0.0" ixz="3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.159 0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RR_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.159 0.124 -0.13315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RR_caster_frame_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FL_caster_wheel_link_1">
+  <inertial>
+    <origin xyz="3.7969627442180354e-14 2.261316929805246e-06 3.7259015317481214e-12" rpy="0 0 0"/>
+    <mass value="0.11303645038525517"/>
+    <inertia ixx="9e-05" iyy="0.000169" izz="9e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.194 -0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FL_caster_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.194 -0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FL_caster_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FR_caster_wheel_link_1">
+  <inertial>
+    <origin xyz="3.910760604242114e-14 -1.8993858796056973e-06 3.726206843079893e-12" rpy="0 0 0"/>
+    <mass value="0.11303645038525517"/>
+    <inertia ixx="9e-05" iyy="0.000169" izz="9e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.194 0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FR_caster_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.194 0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FR_caster_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RL_caster_whee_linkl_1">
+  <inertial>
+    <origin xyz="3.910760604242114e-14 -1.8993858800359087e-06 3.72572112050662e-12" rpy="0 0 0"/>
+    <mass value="0.11303645038525517"/>
+    <inertia ixx="9e-05" iyy="0.000169" izz="9e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.124 -0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RL_caster_whee_linkl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.124 -0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RL_caster_whee_linkl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RR_caster_wheel_link_1">
+  <inertial>
+    <origin xyz="3.910760604242114e-14 -1.8993858795224305e-06 3.726387254321395e-12" rpy="0 0 0"/>
+    <mass value="0.11303645038525517"/>
+    <inertia ixx="9e-05" iyy="0.000169" izz="9e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.124 0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RR_caster_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.124 0.124 -0.0501" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RR_caster_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_link_1">
+  <inertial>
+    <origin xyz="2.789739056670526e-07 0.01845110677495987 2.910694602009656e-11" rpy="0 0 0"/>
+    <mass value="0.2428117916802712"/>
+    <inertia ixx="0.000208" iyy="0.000372" izz="0.000208" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.1195 -0.052755" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/left_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.1195 -0.052755" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/left_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_link_1">
+  <inertial>
+    <origin xyz="2.789739068591633e-07 -0.018450768673225704 -2.1655940929399264e-11" rpy="0 0 0"/>
+    <mass value="0.2428117916802712"/>
+    <inertia ixx="0.000208" iyy="0.000372" izz="0.000208" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.1195 -0.052755" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/right_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.1195 -0.052755" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/right_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link_1">
+  <inertial>
+    <origin xyz="2.1467268785774832e-07 9.486557952511027e-05 0.0008603442249431187" rpy="0 0 0"/>
+    <mass value="0.0006227002906259444"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.11685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.11685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="display_link_1">
+  <inertial>
+    <origin xyz="-0.0010000000000193743 1.6666668159915233e-07 3.725464381432175e-12" rpy="0 0 0"/>
+    <mass value="0.028850043817304365"/>
+    <inertia ixx="7.7e-05" iyy="1.4e-05" izz="6.3e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.307 0.0005 -0.0649" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/display_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.307 0.0005 -0.0649" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/display_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link_1">
+  <inertial>
+    <origin xyz="-0.014232812199430123 1.666666812407151e-07 3.762351541425346e-12" rpy="0 0 0"/>
+    <mass value="0.0829264188730426"/>
+    <inertia ixx="5.7e-05" iyy="1.3e-05" izz="5.7e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.312 0.0005 -0.12335" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.312 0.0005 -0.12335" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FH_link_1">
+  <inertial>
+    <origin xyz="0.029050175464338746 -0.0004998333333640564 -0.11745334594330298" rpy="0 0 0"/>
+    <mass value="0.962482334984432"/>
+    <inertia ixx="0.005969" iyy="0.001915" izz="0.00561" ixy="-0.0" iyz="-0.0" ixz="0.000362"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.2485 -0.0 -0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.2485 -0.0 -0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FLD_link_1">
+  <inertial>
+    <origin xyz="-0.2985988724460358 0.0005001666666809933 -0.019849999996274542" rpy="0 0 0"/>
+    <mass value="0.012301532025820964"/>
+    <inertia ixx="5.4e-05" iyy="0.0" izz="5.4e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.613 0.001 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.613 0.001 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Left_coinLED_link_1">
+  <inertial>
+    <origin xyz="-0.0007229355406585536 1.6666691241007392e-07 3.723091279717039e-12" rpy="0 0 0"/>
+    <mass value="0.004568552647976208"/>
+    <inertia ixx="1e-06" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.28525 -0.1745 -0.1049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/Left_coinLED_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.28525 -0.1745 -0.1049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/Left_coinLED_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FLS_ledDiffuser_link_1">
+  <inertial>
+    <origin xyz="-0.27301449623628365 -0.0661802660557411 -0.019849999996277262" rpy="0 0 0"/>
+    <mass value="0.013300504328187232"/>
+    <inertia ixx="1.9e-05" iyy="4e-05" izz="5.8e-05" ixy="2.2e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.527 -0.269 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FLS_ledDiffuser_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.527 -0.269 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FLS_ledDiffuser_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FLH_link_1">
+  <inertial>
+    <origin xyz="-0.04372758551962011 0.06967876140281137 -0.04412986193071458" rpy="0 0 0"/>
+    <mass value="1.020618140025228"/>
+    <inertia ixx="0.002796" iyy="0.004116" izz="0.003486" ixy="0.000951" iyz="0.000295" ixz="0.000287"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.2825 -0.1195 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FLH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.2825 -0.1195 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FLH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Right_coinLED_link_1">
+  <inertial>
+    <origin xyz="-0.0007229355406578319 1.6666690574873577e-07 3.499686651586842e-12" rpy="0 0 0"/>
+    <mass value="0.004568552647976208"/>
+    <inertia ixx="1e-06" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.28525 0.1755 -0.1049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/Right_coinLED_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.28525 0.1755 -0.1049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/Right_coinLED_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FRS_ledDiffuser_link_1">
+  <inertial>
+    <origin xyz="-0.2730144962362826 0.06718059938910298 -0.01984999999627926" rpy="0 0 0"/>
+    <mass value="0.013300504328187232"/>
+    <inertia ixx="1.9e-05" iyy="4e-05" izz="5.8e-05" ixy="-2.2e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.527 0.271 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FRS_ledDiffuser_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.527 0.271 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FRS_ledDiffuser_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FRH_link_1">
+  <inertial>
+    <origin xyz="-0.04372757441682998 -0.0696784370061038 -0.04412986056251399" rpy="0 0 0"/>
+    <mass value="1.020618162803884"/>
+    <inertia ixx="0.002796" iyy="0.004116" izz="0.003486" ixy="-0.000951" iyz="-0.000295" ixz="0.000287"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.2825 0.1205 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FRH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.2825 0.1205 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/FRH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LMFH_link_1">
+  <inertial>
+    <origin xyz="-0.07773620843430941 -0.0005092848778278924 -0.037213082162068756" rpy="0 0 0"/>
+    <mass value="0.923613115226273"/>
+    <inertia ixx="0.002052" iyy="0.002854" izz="0.002391" ixy="-0.000128" iyz="0.000496" ixz="5.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1497 -0.199 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LMFH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1497 -0.199 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LMFH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LMBH_link_1">
+  <inertial>
+    <origin xyz="-0.07129622421952217 -0.00011171104702731305 -0.03754271784719326" rpy="0 0 0"/>
+    <mass value="0.9360453285084521"/>
+    <inertia ixx="0.002093" iyy="0.002942" izz="0.002464" ixy="0.000105" iyz="0.000508" ixz="-3.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.199 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LMBH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.199 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LMBH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BLH_link_1">
+  <inertial>
+    <origin xyz="-0.10054001470751303 -0.005520758984414453 -0.04800190517851845" rpy="0 0 0"/>
+    <mass value="1.2928829663405714"/>
+    <inertia ixx="0.003529" iyy="0.005359" izz="0.004406" ixy="-0.000767" iyz="0.000411" ixz="-0.000525"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.15 -0.199 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BLH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.15 -0.199 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BLH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BH_link_1">
+  <inertial>
+    <origin xyz="-0.00252933453604004 -0.12159287639677396 -0.03826453851032821" rpy="0 0 0"/>
+    <mass value="1.2271126368144634"/>
+    <inertia ixx="0.007279" iyy="0.002901" izz="0.006243" ixy="-5.9e-05" iyz="-0.000127" ixz="-0.00064"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2795 -0.1192 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2795 -0.1192 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BRH_link_1">
+  <inertial>
+    <origin xyz="0.029133042279161525 -0.07408762631106575 -0.048001128543863986" rpy="0 0 0"/>
+    <mass value="1.2929068154447942"/>
+    <inertia ixx="0.003522" iyy="0.005372" izz="0.004412" ixy="0.000764" iyz="-0.000411" ixz="-0.000526"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2795 0.1205 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BRH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2795 0.1205 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BRH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RMBH_link_1">
+  <inertial>
+    <origin xyz="0.07852282656128787 0.00013244263421474667 -0.03753284680216923" rpy="0 0 0"/>
+    <mass value="0.9346142072056511"/>
+    <inertia ixx="0.00209" iyy="0.002931" izz="0.002455" ixy="-0.000103" iyz="-0.000507" ixz="-3.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1497 0.2 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RMBH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1497 0.2 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RMBH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RMFH_link_1">
+  <inertial>
+    <origin xyz="0.07179604827169399 0.0004969745790195101 -0.037222175853742406" rpy="0 0 0"/>
+    <mass value="0.9219152592467597"/>
+    <inertia ixx="0.002048" iyy="0.002844" izz="0.002381" ixy="0.000127" iyz="-0.000495" ixz="5.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.2 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RMFH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.2 -0.1606" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RMFH_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LSLD_link_1">
+  <inertial>
+    <origin xyz="-0.07500000000001895 0.2349012942206703 -0.01984999999627557" rpy="0 0 0"/>
+    <mass value="0.01551062733690469"/>
+    <inertia ixx="0.0" iyy="0.000109" izz="0.000109" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.075 0.001 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LSLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.075 0.001 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LSLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RSLD_link_1">
+  <inertial>
+    <origin xyz="-0.07470000000001892 0.21909903911270412 -0.019849999996277568" rpy="0 0 0"/>
+    <mass value="0.01551062733690469"/>
+    <inertia ixx="0.0" iyy="0.000109" izz="0.000109" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0747 0.454 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RSLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0747 0.454 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RSLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BLD_link_1">
+  <inertial>
+    <origin xyz="0.29859887244599786 0.000500166666687015 -0.01985014574678598" rpy="0 0 0"/>
+    <mass value="0.012301532025820964"/>
+    <inertia ixx="5.4e-05" iyy="0.0" izz="5.4e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.613 0.001 -0.167407" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="0.613 0.001 -0.167407" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BRSLDF_link_1">
+  <inertial>
+    <origin xyz="0.2745670079715901 0.10578800364980864 -0.019849999996278872" rpy="0 0 0"/>
+    <mass value="0.014861507222726996"/>
+    <inertia ixx="2.1e-05" iyy="4.7e-05" izz="6.8e-05" ixy="2e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.537 0.315 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BRSLDF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="0.537 0.315 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BRSLDF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BLLDF_link_1">
+  <inertial>
+    <origin xyz="-0.33943299202840976 0.22191232968356597 -0.019849999996277234" rpy="0 0 0"/>
+    <mass value="0.014861507222726996"/>
+    <inertia ixx="2.1e-05" iyy="4.7e-05" izz="6.8e-05" ixy="-2e-05" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.077 0.01385 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BLLDF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.077 0.01385 -0.16775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/BLLDF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ATC_link_1">
+  <inertial>
+    <origin xyz="-0.28859135980076234 -0.06969983333331892 0.001500000003725438" rpy="0 0 0"/>
+    <mass value="0.9850434341960379"/>
+    <inertia ixx="0.017239" iyy="0.030917" izz="0.048155" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.28275 -0.0692 -0.16785" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/ATC_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.28275 -0.0692 -0.16785" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/ATC_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RSCLD_link_1">
+  <inertial>
+    <origin xyz="-1.9370301803517398e-14 0.006085963469508016 3.7227582128096515e-12" rpy="0 0 0"/>
+    <mass value="0.009415277732225075"/>
+    <inertia ixx="5e-06" iyy="1e-05" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0003 0.2445 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RSCLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0003 0.2445 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RSCLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RSLCA_link_1">
+  <inertial>
+    <origin xyz="-1.9224042930449103e-14 -0.001499833333312911 3.7227582128096515e-12" rpy="0 0 0"/>
+    <mass value="0.0064492624612189605"/>
+    <inertia ixx="1e-06" iyy="2e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0003 0.2415 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RSLCA_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0003 0.2415 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/RSLCA_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LSCLD_link_1">
+  <inertial>
+    <origin xyz="-1.9298148148938488e-14 -0.0060856301361327525 3.724590080800283e-12" rpy="0 0 0"/>
+    <mass value="0.009415277732225075"/>
+    <inertia ixx="5e-06" iyy="1e-05" izz="5e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0003 -0.2435 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LSCLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0003 -0.2435 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LSCLD_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LSLCA_link_1">
+  <inertial>
+    <origin xyz="-1.9295166592964152e-14 0.0015001666666877023 3.724590080800283e-12" rpy="0 0 0"/>
+    <mass value="0.0064492624612189605"/>
+    <inertia ixx="1e-06" iyy="2e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0003 -0.2405 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LSLCA_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0003 -0.2405 -0.093875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/LSLCA_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link_1">
+  <inertial>
+    <origin xyz="7.882583474838611e-15 1.6666667975694098e-07 0.004999995807558721" rpy="0 0 0"/>
+    <mass value="0.040793580606862744"/>
+    <inertia ixx="1.3e-05" iyy="1.3e-05" izz="2.5e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.14805 -0.0 -0.1796" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.14805 -0.0 -0.1796" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ninjabot_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="FL_caster_yaw" type="continuous">
+  <origin xyz="0.159 -0.124 0.13315" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="FL_caster_frame_link_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="FR_caster_yaw" type="continuous">
+  <origin xyz="0.159 0.124 0.13315" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="FR_caster_frame_link_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="RL_caster_yaw" type="continuous">
+  <origin xyz="-0.159 0.124 0.13315" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="RL_caster_frame_link_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="RR_caster_yaw" type="continuous">
+  <origin xyz="-0.159 -0.124 0.13315" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="RR_caster_frame_link_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="FL_caster_wheel" type="continuous">
+  <origin xyz="0.035 0.0 -0.08305" rpy="0 0 0"/>
+  <parent link="FR_caster_frame_link_1"/>
+  <child link="FL_caster_wheel_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="FR_caster_wheel" type="continuous">
+  <origin xyz="0.035 0.0 -0.08305" rpy="0 0 0"/>
+  <parent link="FL_caster_frame_link_1"/>
+  <child link="FR_caster_wheel_link_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="RL_caster_wheel" type="continuous">
+  <origin xyz="0.035 0.0 -0.08305" rpy="0 0 0"/>
+  <parent link="RL_caster_frame_link_1"/>
+  <child link="RL_caster_whee_linkl_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="RR_caster_wheel" type="continuous">
+  <origin xyz="0.035 0.0 -0.08305" rpy="0 0 0"/>
+  <parent link="RR_caster_frame_link_1"/>
+  <child link="RR_caster_wheel_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="left_wheel_actuator" type="continuous">
+  <origin xyz="0.0 0.1195 0.052755" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_link_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_wheel_actuator" type="continuous">
+  <origin xyz="0.0 -0.1195 0.052755" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_link_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="imu" type="fixed">
+  <origin xyz="0.0 0.0 0.11685" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link_1"/>
+</joint>
+
+<joint name="display" type="fixed">
+  <origin xyz="0.0585 -0.0005 -0.1851" rpy="0 0 0"/>
+  <parent link="FH_link_1"/>
+  <child link="display_link_1"/>
+</joint>
+
+<joint name="camera" type="fixed">
+  <origin xyz="0.0635 -0.0005 -0.12665" rpy="0 0 0"/>
+  <parent link="FH_link_1"/>
+  <child link="camera_link_1"/>
+</joint>
+
+<joint name="housing" type="fixed">
+  <origin xyz="0.2485 0.0 0.25" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="FH_link_1"/>
+</joint>
+
+<joint name="FLD" type="fixed">
+  <origin xyz="0.3645 -0.001 -0.08225" rpy="0 0 0"/>
+  <parent link="FH_link_1"/>
+  <child link="FLD_link_1"/>
+</joint>
+
+<joint name="LCL" type="fixed">
+  <origin xyz="0.00275 0.055 -0.0557" rpy="0 0 0"/>
+  <parent link="FLH_link_1"/>
+  <child link="Left_coinLED_link_1"/>
+</joint>
+
+<joint name="FLSLD" type="fixed">
+  <origin xyz="0.2445 0.1495 0.00715" rpy="0 0 0"/>
+  <parent link="FLH_link_1"/>
+  <child link="FLS_ledDiffuser_link_1"/>
+</joint>
+
+<joint name="HJ1" type="fixed">
+  <origin xyz="0.034 0.1195 -0.0894" rpy="0 0 0"/>
+  <parent link="FH_link_1"/>
+  <child link="FLH_link_1"/>
+</joint>
+
+<joint name="RCL" type="fixed">
+  <origin xyz="0.00275 -0.055 -0.0557" rpy="0 0 0"/>
+  <parent link="FRH_link_1"/>
+  <child link="Right_coinLED_link_1"/>
+</joint>
+
+<joint name="FRSLD" type="fixed">
+  <origin xyz="0.2445 -0.1505 0.00715" rpy="0 0 0"/>
+  <parent link="FRH_link_1"/>
+  <child link="FRS_ledDiffuser_link_1"/>
+</joint>
+
+<joint name="HJ2" type="fixed">
+  <origin xyz="0.034 -0.1205 -0.0894" rpy="0 0 0"/>
+  <parent link="FH_link_1"/>
+  <child link="FRH_link_1"/>
+</joint>
+
+<joint name="HJ3" type="fixed">
+  <origin xyz="-0.1328 0.0795 0.0" rpy="0 0 0"/>
+  <parent link="FLH_link_1"/>
+  <child link="LMFH_link_1"/>
+</joint>
+
+<joint name="HJ4" type="fixed">
+  <origin xyz="-0.1497 0.0 0.0" rpy="0 0 0"/>
+  <parent link="LMFH_link_1"/>
+  <child link="LMBH_link_1"/>
+</joint>
+
+<joint name="HJ5" type="fixed">
+  <origin xyz="-0.15 0.0 0.0" rpy="0 0 0"/>
+  <parent link="LMBH_link_1"/>
+  <child link="BLH_link_1"/>
+</joint>
+
+<joint name="HJ6" type="fixed">
+  <origin xyz="-0.1295 -0.0798 0.0" rpy="0 0 0"/>
+  <parent link="BLH_link_1"/>
+  <child link="BH_link_1"/>
+</joint>
+
+<joint name="HJ7" type="fixed">
+  <origin xyz="0.0 -0.2397 0.0" rpy="0 0 0"/>
+  <parent link="BH_link_1"/>
+  <child link="BRH_link_1"/>
+</joint>
+
+<joint name="HJ8" type="fixed">
+  <origin xyz="0.1298 -0.0795 0.0" rpy="0 0 0"/>
+  <parent link="BRH_link_1"/>
+  <child link="RMBH_link_1"/>
+</joint>
+
+<joint name="HJ9" type="fixed">
+  <origin xyz="0.1497 0.0 0.0" rpy="0 0 0"/>
+  <parent link="RMBH_link_1"/>
+  <child link="RMFH_link_1"/>
+</joint>
+
+<joint name="HJ14" type="fixed">
+  <origin xyz="-0.0747 -0.2 0.00715" rpy="0 0 0"/>
+  <parent link="LMFH_link_1"/>
+  <child link="LSLD_link_1"/>
+</joint>
+
+<joint name="HJ15" type="fixed">
+  <origin xyz="0.0747 -0.254 0.00715" rpy="0 0 0"/>
+  <parent link="RMFH_link_1"/>
+  <child link="RSLD_link_1"/>
+</joint>
+
+<joint name="HJ16" type="fixed">
+  <origin xyz="-0.3335 -0.1202 0.006807" rpy="0 0 0"/>
+  <parent link="BH_link_1"/>
+  <child link="BLD_link_1"/>
+</joint>
+
+<joint name="HJ17" type="fixed">
+  <origin xyz="-0.2575 -0.1945 0.00715" rpy="0 0 0"/>
+  <parent link="BRH_link_1"/>
+  <child link="BRSLDF_link_1"/>
+</joint>
+
+<joint name="HJ18" type="fixed">
+  <origin xyz="0.227 -0.21285 0.00715" rpy="0 0 0"/>
+  <parent link="BLH_link_1"/>
+  <child link="BLLDF_link_1"/>
+</joint>
+
+<joint name="HJ19" type="fixed">
+  <origin xyz="0.03425 0.0692 -0.08215" rpy="0 0 0"/>
+  <parent link="FH_link_1"/>
+  <child link="ATC_link_1"/>
+</joint>
+
+<joint name="HJ20" type="fixed">
+  <origin xyz="0.0 -0.003 0.0" rpy="0 0 0"/>
+  <parent link="RSLCA_link_1"/>
+  <child link="RSCLD_link_1"/>
+</joint>
+
+<joint name="HJ21" type="fixed">
+  <origin xyz="0.15 -0.0415 -0.066725" rpy="0 0 0"/>
+  <parent link="RMBH_link_1"/>
+  <child link="RSLCA_link_1"/>
+</joint>
+
+<joint name="HJ12" type="fixed">
+  <origin xyz="0.0 0.003 0.0" rpy="0 0 0"/>
+  <parent link="LSLCA_link_1"/>
+  <child link="LSCLD_link_1"/>
+</joint>
+
+<joint name="HJ13" type="fixed">
+  <origin xyz="0.0003 0.0415 -0.066725" rpy="0 0 0"/>
+  <parent link="LMBH_link_1"/>
+  <child link="LSLCA_link_1"/>
+</joint>
+
+<joint name="lidar" type="fixed">
+  <origin xyz="0.14805 0.0 0.1796" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_link_1"/>
+</joint>
+
+</robot>

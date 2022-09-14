@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="scan_topic" default="ninjabot/scan" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <rosparam command="load" file="$(find ninjabot_mapping)/config/gmapping_params.yaml"/>
+    <remap from="scan" to="$(arg scan_topic)"/>
+  </node>
+
+</launch>

@@ -1,0 +1,8 @@
+controller_frequency:  5.0
+recovery_behavior_enabled: true
+base_global_planner:  "navfn/NavfnROS"
+
+NavfnRos:
+  allow_unknown: true
+  default_tolerance: 0.1
+

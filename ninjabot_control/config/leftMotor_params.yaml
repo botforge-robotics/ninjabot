@@ -1,0 +1,7 @@
+Kp : 33.0
+Ki : 15.0
+Kd : 0.0
+out_min : -240
+out_max : 240
+rate : 20
+timeout_ticks : 2500

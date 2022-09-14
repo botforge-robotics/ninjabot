@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <include file="$(find ninjabot_control)/launch/arduino_serial.launch" /> -->
+<rosparam param="ticks_meter">7050</rosparam>
+<!-- <rosparam param="encoder_min">0</rosparam>
+<rosparam param="encoder_max">4096</rosparam> -->
+    <!-- <node  pkg="differential_drive" type="diff_tf.py" name="diff_tf">
+        <rosparam command="load" file="$(find ninjabot_control)/config/diff_drive_params.yaml"/>
+    </node> -->
+    <!-- <node pkg="differential_drive" type="pid_velocity.py" name="lpid_velocity">
+        <remap from="wheel" to="lwheel"/>
+        <remap from="motor_cmd" to="lmotor_cmd"/>
+        <remap from="wheel_vtarget" to="lwheel_vtarget"/>
+        <remap from="wheel_vel" to="lwheel_vel"/>
+        <rosparam param="Kp">200</rosparam>
+        <rosparam param="Ki">200</rosparam>
+        <rosparam param="Kd">0</rosparam>
+        <rosparam param="out_min">-255</rosparam>
+        <rosparam param="out_max">255</rosparam>
+        <rosparam param="rate">30</rosparam>
+        <rosparam param="timeout_ticks">4</rosparam>
+        <rosparam param="rolling_pts">5</rosparam>
+    </node> -->
+    <node pkg="differential_drive" type="pid_velocity.py" name="lpid_velocity">
+        <remap from="wheel" to="lwheel"/>
+        <remap from="motor_cmd" to="lmotor_cmd"/>
+        <remap from="wheel_vtarget" to="lwheel_vtarget"/>
+        <remap from="wheel_vel" to="lwheel_vel"/>
+        <rosparam command="load" file="$(find ninjabot_control)/config/leftMotor_params.yaml"/> 
+    </node> 
+
+
+</launch>

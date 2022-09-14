@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ninjabot_simulation</name>
+  <version>0.0.0</version>
+  <description>The ninjabot_simulation package</description>
+  <maintainer email="chaitu@todo.todo">chaitu</maintainer>
+
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>gazebo_ros</depend>
+  <exec_depend>gazebo</exec_depend>
+  <exec_depend>ninjabot_description</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+ <export>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/models"/>
+</export>
+</package>

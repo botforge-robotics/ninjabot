@@ -1,0 +1,7 @@
+rate : 20
+ticks_meter : 12050
+base_width : 0.274
+base_frame_id : base_link
+odom_frame_id : odom
+# encoder_min : 0
+# encoder_max : 4096

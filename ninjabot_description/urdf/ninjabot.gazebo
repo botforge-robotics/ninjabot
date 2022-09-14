@@ -1,0 +1,413 @@
+<?xml version="1.0" ?>
+<robot name="ninjabot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="white" value="Gazebo/White" />
+<xacro:property name="dark_grey" value="Gazebo/DarkGrey" />
+<xacro:property name="black" value="Gazebo/Black" />
+<xacro:property name="yellow" value="Gazebo/YellowGlow" /> 
+<xacro:property name="grey" value="Gazebo/Grey" />
+<xacro:property name="r_name" value="ninjabot" />
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+  <robotNamespace>/${r_name}</robotNamespace>
+</gazebo>
+<gazebo reference="base_link">
+  <material>${grey}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="FL_caster_frame_link_1">
+  <material>${grey}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FR_caster_frame_link_1">
+  <material>${grey}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RL_caster_frame_link_1">
+  <material>${grey}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RR_caster_frame_link_1">
+  <material>${grey}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FL_caster_wheel_link_1">
+  <material>${black}</material>
+  <mu1>0.01</mu1>
+  <mu2>0.01</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FR_caster_wheel_link_1">
+  <material>${black}</material>
+  <mu1>0.01</mu1>
+  <mu2>0.01</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RL_caster_whee_linkl_1">
+  <material>${black}</material>
+  <mu1>0.01</mu1>
+  <mu2>0.01</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RR_caster_wheel_link_1">
+  <material>${black}</material>
+  <mu1>0.01</mu1>
+  <mu2>0.01</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="left_wheel_link_1">
+  <material>${black}</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="right_wheel_link_1">
+  <material>${black}</material>
+  <mu1>1500</mu1>
+  <mu2>1500</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="lidar_link_1">
+  <material>${dark_grey}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="imu_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="display_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="camera_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FH_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FLD_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="Left_coinLED_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FLS_ledDiffuser_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FLH_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="Right_coinLED_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FRS_ledDiffuser_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="FRH_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="LMFH_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="LMBH_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="BLH_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="BH_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="BRH_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RMBH_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RMFH_link_1">
+  <material>${white}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="LSLD_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RSLD_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="BLD_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="BRSLDF_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="BLLDF_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="ATC_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RSCLD_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="RSLCA_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="LSCLD_link_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="LSLCA_link_1">
+  <material>${black}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+
+<gazebo>
+	<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+		<updateRate>100</updateRate>
+		<leftJoint>left_wheel_actuator</leftJoint>
+		<rightJoint>right_wheel_actuator</rightJoint>
+		<wheelSeparation>0.276</wheelSeparation>
+		<wheelDiameter>0.1</wheelDiameter>
+		<wheelAcceleration>1.0</wheelAcceleration>
+		<wheelTorque>0.980665</wheelTorque>
+		<commandTopic>cmd_vel</commandTopic>
+		<odometryTopic>odom</odometryTopic>
+		<odometryFrame>odom</odometryFrame>
+		<robotBaseFrame>base_link</robotBaseFrame>
+		<odometrySource>world</odometrySource>
+		<publishWheelTF>0</publishWheelTF>
+		<publishOdom>1</publishOdom>
+		<publishWheelJointState>0</publishWheelJointState>
+		<legacyMode>false</legacyMode>
+		<publishTf>1</publishTf>
+		<rosDebugLevel>na</rosDebugLevel>
+		<publishOdomTF>1</publishOdomTF>
+	  </plugin>
+</gazebo>
+
+<gazebo reference="camera_link_1">
+	<sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="camera">
+        <horizontal_fov>0.9</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <robotNamespace>${r_name}</robotNamespace>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link_1</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+</gazebo>
+
+<gazebo reference="imu_link_1">
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+    <robotNamespace>${r_name}</robotNamespace>
+      <alwaysOn>true</alwaysOn>
+      <xyzOffset> 0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+      <bodyName>imu_link_1</bodyName>
+      <frameName>imu_link_1</frameName>
+      <topicName>imu</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>20.0</updateRate>
+    </plugin>
+ </gazebo>
+
+ <gazebo reference="lidar_link_1">
+    <sensor type="ray" name="rp_lidar">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265</min_angle>
+            <max_angle>3.14159265</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.15</min>
+          <max>6.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
+      <robotNamespace>${r_name}</robotNamespace>
+        <topicName>scan</topicName>
+        <frameName>lidar_link_1</frameName>
+         
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>

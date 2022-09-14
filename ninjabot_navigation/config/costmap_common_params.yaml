@@ -1,0 +1,33 @@
+footprint: [[-0.35, 0.25], [0.35, 0.25], [0.35, -0.25], [-0.35, -0.25]]
+footprint_padding: 0.05
+
+robot_base_frame: base_link
+update_frequency: 4.0
+publish_frequency: 3.0
+transform_tolerance: 0.5
+
+resolution: 0.05
+
+obstacle_range: 3.5
+raytrace_range: 4.0
+
+# layer defnition
+static:
+  enable: true
+  map_topic: /map
+  subscribe_to_updates: true
+
+obstacles_laser:
+  enable: true
+  observation_sources: lidar_1
+  lidar_1:
+    {
+      data_type: LaserScan,
+      topic: /ninjabot/scan,
+      marking: true,
+      clearing: true,
+    }
+
+inflation:
+  enabled: true
+  inflation_radius: 0.35
