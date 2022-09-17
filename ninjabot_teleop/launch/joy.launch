@@ -5,5 +5,5 @@
         <arg name="joy_dev" default="/dev/input/js0" />
         <arg name="config_filepath" default="$(find ninjabot_teleop)/config/joy_config.yaml" /> 
     </include>
-     <remap from="/cmd_vel" to="/ninjabot/cmd_vel"/>
+     <remap from="/cmd_vel" to="/cmd_vel"/>
 </launch>

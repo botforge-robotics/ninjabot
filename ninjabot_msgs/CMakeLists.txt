@@ -57,6 +57,7 @@ add_message_files(
   Lcd.msg
   Ws2812b.msg
   Ws2812b_strip.msg
+  Wheel_speed.msg
 )
 
 ## Generate services in the 'srv' folder
