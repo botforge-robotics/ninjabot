@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <launch>
   <node pkg="rosserial_python" type="serial_node.py" name="mcu1_serial_node">
-    <param name="port" value="/dev/ttyUSB0"/>
+    <param name="port" value="/dev/MCU1"/>
     <param name="baud" value="115200"/>
   </node>
-  <!-- <node pkg="rosserial_python" type="serial_node.py" name="mcu2_serial_node">
-    <param name="port" value="/dev/ttyUSB1"/>
+  <node pkg="rosserial_python" type="serial_node.py" name="mcu2_serial_node">
+    <param name="port" value="/dev/MCU2"/>
     <param name="baud" value="115200"/>
-  </node> -->
+  </node>
 </launch>

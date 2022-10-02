@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam command="load" file="$(find ninjabot_teleop)/config/joy_config.yaml" />
+    <include file="$(find teleop_twist_joy)/launch/teleop.launch">
+        <arg name="joy_dev" default="/dev/input/js0" />
+        <arg name="config_filepath" default="$(find ninjabot_teleop)/config/joy_config.yaml" /> 
+    </include>
+     <!-- <remap from="/cmd_vel" to="/ninjabot/cmd_vel"/> -->
+     <!-- control node -->
+     <node name="joy_control_node" pkg="ninjabot_teleop" type="ninjabot_joy_control.py">
+        
+     </node>
+</launch>

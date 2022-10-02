@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+<!-- serial nodes -->
+    <include file="$(find ninjabot_control)/launch/arduino_serial.launch" />
+<!-- USB CAMERA -->
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node"  output="screen" >
+        <param name="pixel_format" value="yuyv" />
+    </node>
+<!-- ROBOT Description -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find ninjabot_description)/urdf/ninjabot.xacro"/>
+<!-- Joint states -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"></node>
+<!-- vel to odom publisher -->
+    <node name="vel_to_odom_node" pkg="ninjabot_control" type="vel_to_odom_node">
+        <param name="publish_tf" value="true" />
+        <param name="linear_scale_positive" value="1.2" />
+        <param name="linear_scale_negative" value="1.0" />
+        <param name="angular_scale_positive" value="1.3"/>
+        <param name="angular_scale_negative" value="1.3 "/>
+
+    </node>
+<!-- Initializer -->
+    <node name="initializer_node" pkg="ninjabot_control" type="initialize.py"/>
+
+    <!-- RP lidar -->
+    <include file="$(find ninjabot_control)/launch/rplidar.launch"></include>
+
+</launch>

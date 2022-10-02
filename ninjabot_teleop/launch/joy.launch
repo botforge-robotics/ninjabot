@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <rosparam command="load" file="$(find ninjabot_teleop)/config/joy_config.yaml" />
-    <include file="$(find teleop_twist_joy)/launch/teleop.launch">
-        <arg name="joy_dev" default="/dev/input/js0" />
-        <arg name="config_filepath" default="$(find ninjabot_teleop)/config/joy_config.yaml" /> 
-    </include>
-     <remap from="/cmd_vel" to="/cmd_vel"/>
-</launch>
