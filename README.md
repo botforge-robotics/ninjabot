@@ -131,7 +131,7 @@ CTRL-C to quit
 ```sh
 roslaunch ninjabot_teleop joy_teleop.launch
 ```
-
+<img align="center" src="images/joystick_teleop.jpg" alt="Logo" >
 3. Rqt robot steering
 
 ```sh
@@ -302,6 +302,7 @@ sudo systemctl status ninjabot.service
 ```sh
 roslaunch ninjabot_teleop joy_control.launch
 ```
+<img align="center" src="images/joystick_control.jpg" alt="Logo" >
 
 ### Mapping
 
