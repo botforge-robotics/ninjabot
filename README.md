@@ -34,8 +34,8 @@
       <a href="#real-robot">Real Robot</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#Connecting_to_robot">Connecting to robot</a></li>
-        <li><a href="#add_or_remove_wifi">Add or remove wifi</a></li>
+        <li><a href="#connecting_pc_to_robot">Connecting PC to robot</a></li>
+        <li><a href="#connect_robot_to_wifi">Connect robot to WiFi</a></li>
         <li><a href="#network_configuration">Network configuration</a></li>
         <li><a href="#ninjabot_service">Ninjabot service</a></li>
         <li><a href="#joystic_control">Joystic control</a></li>
@@ -144,22 +144,28 @@ rosrun rqt_robot_steering rqt_robot_steering
 ### SLAM
 
 1. Launch Gazebo simulation.
-2. Launching SLAM mapping.
+2. Launching SLAM mapping node.
 
 ```sh
-roslaunch ninjabot_mapping ninjabot_mapping.launch
+roslaunch ninjabot_mapping ninjabot_gmapping.launch
+```
+
+3. Open rviz
+
+```sh
+roslaunch ninjabot_mapping gmappin_rviz.launch
 ```
 
 move robo with twist teleop for mapping entire area.
 <img align="center" src="images/slam.png" alt="Logo" >
 
-3. Save map.
+4. Save map.
 
 ```sh
 roslaunch ninjabot_mapping save_map.launch map_name:=<NEW_MAP_NAME>
 ```
 
-New map will be saved in _catkin_ws/src/ninjabot/ninjabot_mapping/maps/_ folder with given map*name. *<b>(Please give map name same as world name for easy convinence for launching navigation.)</b>\_
+New map will be saved in _catkin_ws/src/ninjabot/ninjabot_mapping/maps/_ folder with given map name. _<b>(Please give map name same as world name for easy convinence for launching navigation.)</b>_
 
 eg:
 
@@ -174,10 +180,10 @@ roslaunch ninjabot_mapping save_map.launch map_name:=house
 2. Launch Navigation
 
 ```sh
-roslaunch ninjabot_navigation ninjabot_navigation.launch world:=house
+roslaunch ninjabot_navigation ninjabot_navigation.launch map:=house
 ```
 
-(world name is same for both gazebo world and map name)
+(map name is same for both gazebo world and map name)
 <img align="center" src="images/navigation.png" alt="Logo" >
 
 ## Real-Robot
@@ -185,24 +191,160 @@ roslaunch ninjabot_navigation ninjabot_navigation.launch world:=house
 ### Prerequisites
 
 1. NinjaBot Physical robot
-2. Wifi router
+2. WiFi router
 3. RJ45 Lan Cable
 4. PC wih ROS installed
 5. Joystick (optional)
 
-### Connecting_to_robot
+### Connecting_pc_to_robot
 
-### Add_or_Remove_wifi
+1. Connect through LAN - connect robot and workstation(PC) through RJ45 lan cable and turn on robot wait untill green led on raspberrypi is on steady. - Now open terminal in pc and connect to robot via ssh
+   `sh ssh ubuntu@ninjabot.local ` - Enter password <b>_ubuntu_</b>
+   <br>
+2. Connect through WiFi
+   - first complete <b>_Connect_robot_to_WiFi_</b>
+   - After connecting robot and pc to same WiFi network, Now open terminal in pc and connect to robot via ssh._(ROBOT_IP_ADDRESS will be shown in 16x2 lcd display on robot back side)_
+   ```sh
+   ssh ubuntu@<ROBOT_IP_ADDRESS>
+   ```
+   - Enter password <b>_ubuntu_</b>
+
+### Connect_robot_to_WiFi
+
+1. Connect to robot through LAN 1st.
+   Now run below commands in robot ssh terminal
+2. Scan available WiFi networks
+
+```sh
+pifi list seen
+```
+
+3. Add wifi network to robot
+
+```sh
+sudo pifi add <ssid> <password>
+```
+
+4. Reboot robot to connect to added WiFi network
+
+```sh
+sudo reboot
+```
+
+4. Robot WiFi connection status
+
+```sh
+ pifi status
+```
+
+5. Remove WiFI network from robot
+
+```sh
+sudo pifi remove <ssid>
+```
 
 ### Network_configuration
 
+1. Connect robot and pc via SSH(Wireless Network)
+2. Robot Configuration
+    - get IP Address of robot from robot back display or run _<b>ifconfig</b>_ in robot ssh terminal and get Ip Adress of _wlan_.
+    - Configure ros master URI, IP & HostName in robot, enter below commands in robot ssh terminal.
+    ```sh
+    export ROS_IP=<ROBOT_IP_ADDRESS>
+    export ROS_HOSTNAME=<ROBOT_IP_ADDRESS>
+    export ROS_MASTER_URI=http://localhost:11311
+    ```
+3. Workstation(PC) Configuration
+    - Get pc ip address, run _<b>ifconfig</b>_ in PC terminal and get Ip Adress of _wlan_.
+    - Configure ros master URI, IP & HostName in pc, enter below commands in PC terminal.
+    ```sh
+    export ROS_IP=<PC_IP_ADDRESS>
+    export ROS_HOSTNAME=<PC_IP_ADDRESS>
+    export ROS_MASTER_URI=http://<ROBOT_IP_ADDRESS>:11311
+    ```
+
 ### Ninjabot_service
+
+1. Start Service (already started when boot)
+
+```sh
+sudo systemctl start ninjabot.service
+```
+
+2. Stop Service
+
+```sh
+sudo systemctl stop ninjabot.service
+```
+
+3. Disable Service (turn off auto launch when booted)
+
+```sh
+sudo systemctl disable ninjabot.service
+```
+
+4. Enable Service (turn on auto launch when booted)
+
+```sh
+sudo systemctl enable ninjabot.service
+```
 
 ### Joystic_control
 
+1. Make sure ninjabot service is active on robot, run below command in robot ssh terminal
+
+```sh
+sudo systemctl status ninjabot.service
+```
+
+2. Connect joystick receiver to workstation and launch joystick controller in workstation terminal
+
+```sh
+roslaunch ninjabot_teleop joy_control.launch
+```
+
 ### Mapping
 
+1. Launch Slam mapping node in robot
+
+```sh
+roslaunch ninjabot_mapping ninjabot_gmapping.launch
+```
+
+2. Open rviz in workstation
+
+```sh
+roslaunch ninjabot_mapping gmappin_rviz.launch
+```
+
+3. Move robot with joystick controller for mapping entire area.
+4. Save map
+
+```sh
+roslaunch ninjabot_mapping save_map.launch map_name:=<NEW_MAP_NAME>
+```
+
+New map will be saved in _catkin_ws/src/ninjabot/ninjabot_mapping/maps/_ folder with given map name. _<b>(Please give map name same as world name for easy convinence for launching navigation.)</b>_
+
+eg:
+
+```sh
+roslaunch ninjabot_mapping save_map.launch map_name:=house
+```
+
 ### Ninjabot_Navigation
+
+1. Launch navigation node in robot
+
+```sh
+roslaunch ninjabot_navigation real_navigation.launch map:=house
+```
+
+2. Open rviz in workstation
+
+```sh
+roslaunch ninjabot_navigation navigation_rviz.launch
+```
 
 ## Roadmap
 
@@ -237,8 +379,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## References
 
-- []()
-- []()
+- [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

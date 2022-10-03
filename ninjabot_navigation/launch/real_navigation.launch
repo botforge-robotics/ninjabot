@@ -1,15 +1,9 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="gui" default="true"/>
-	<arg name="rvizconfig" default="$(find ninjabot_navigation)/rviz/navigation.rviz"/>
-	<param name="use_gui" value="$(arg gui)"/>
-	
-	
-	<node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
-	
+	<arg name="map" default="house"/>
 	<!-- map server -->
 	<include file="$(find ninjabot_navigation)/launch/map_server.launch">
-		<arg name="map_name" default="house"/>
+		<arg name="map_name" default="$(arg map)"/>
 	</include>
 
 	<!-- amcl -->
