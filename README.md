@@ -22,25 +22,25 @@
     <li>
       <a href="#simulation">Simulation</a>
       <ul>
-        <li><a href="#prerequisites">Setup</a></li>
-        <li><a href="#installation">Gazebo</a></li>
-        <li><a href="#installation">Rviz</a></li>
-        <li><a href="#installation">Teleop</a></li>
-        <li><a href="#installation">Mapping</a></li>
-        <li><a href="#installation">Navigation</a></li>
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#gazebo">Gazebo</a></li>
+        <li><a href="#rviz">Rviz</a></li>
+        <li><a href="#teleop">Teleop</a></li>
+        <li><a href="#mapping">Mapping</a></li>
+        <li><a href="#simulation-navigation">Navigation</a></li>
       </ul>
     </li>
     <li>
       <a href="#real-robot">Real Robot</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">SSH connection local & wifi</a></li>
-        <li><a href="#installation">Add or remove wifi</a></li>
-        <li><a href="#installation">Network configuration for robot & pc</a></li>
-        <li><a href="#installation">Rviz</a></li>
-        <li><a href="#installation">Teleop</a></li>
-        <li><a href="#installation">Mapping</a></li>
-        <li><a href="#installation">Navigation</a></li>
+        <li><a href="#ssh-connection">SSH connection local & wifi</a></li>
+        <li><a href="#wifi">Add or remove wifi</a></li>
+        <li><a href="#network-configuration"> Network configuration for robot & workstation</a></li>
+        <li><a href="#real-rviz">Rviz</a></li>
+        <li><a href="#real-teleop">Teleop</a></li>
+        <li><a href="#real-mapping">Mapping</a></li>
+        <li><a href="#real-navigation">Navigation</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -51,40 +51,91 @@
   </ol>
 </details>
 
-<!-- GETTING STARTED -->
+<!-- Simulation -->
 
-## Getting Started
+## Simulation
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Ninjabot Gazebo simulation.
 
-### Prerequisites
+#### Setup
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo to ~/catkin_ws/src
    ```sh
+   roscd && cd .. && cd src
    git clone https://github.com/chaitanya-mandala/ninjabot.git
    ```
-3. Install NPM packages
+2. Install ros dependency packages, Execute in ~/catkin_Ws
    ```sh
-   npm install
+   cd ..
+   rosdep install --from-paths src --ignore-src -r -y
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+3. Compile catkin workspace
+   ```sh
+   catkin_make
    ```
 
+#### Gazebo
+
+1. Ninjabot in empty world.
+
+   ```sh
+   roslaunch ninjabot_simulation gazebo.launch world:=empty
+   ```
+
+      <img align="center" src="images/gazebo_empty.png" alt="Logo" >
+   <br></br>
+
+2. Ninjabot in house.
+   ```sh
+   roslaunch ninjabot_simulation gazebo.launch world:=house
+   ```
+   <img align="center" src="images/gazebo_house.png" alt="Logo" >
+
+#### Rviz
+
+1. Launch Rviz after running gazebo simulation.
+   ```sh
+   roslaunch ninjabot_simulation rviz.launch
+   ```
+   <img align="center" src="images/gazebo_rviz.png" alt="Logo" >
+
+#### Teleop
+
+1. Keyboard Twist teleop.
+
+```sh
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+keyboard commands to Move robo
+
+```sh
+Reading from the keyboard  and Publishing to Twist!
+---------------------------
+Moving around:
+   u    i    o
+   j    k    l
+   m    ,    .
+
+q/z : increase/decrease max speeds by 10%
+w/x : increase/decrease only linear speed by 10%
+e/c : increase/decrease only angular speed by 10%
+anything else : stop
+
+CTRL-C to quit
+```
+2. JoyStick Twist teleop.
+```sh
+roslaunch ninjabot_teleop joy_teleop.launch
+```
+
+3. Rqt robot steering
+```sh
+rosrun rqt_robot_steering rqt_robot_steering
+```
+<img align="center" src="images/rqt_robot_steering.png" alt="Logo" >
 <!-- ROADMAP -->
 
+### Mapping
 ## Roadmap
 
 - [ ] Add Sample Codes package

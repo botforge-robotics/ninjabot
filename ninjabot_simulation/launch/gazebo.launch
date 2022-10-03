@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <launch>
+ <arg name="world" default="house"/>
+
   <arg name="model" default="$(find ninjabot_description)/urdf/dexbot.xacro"/>
-  <arg name="x_pos" default="-3.0"/>
-  <arg name="y_pos" default="1.0"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
   <arg name="z_pos" default="0.0"/>
   <arg name="robot_name" default="ninjabot"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find ninjabot_simulation)/worlds/house.world"/>
+    <arg name="world_name" value="$(find ninjabot_simulation)/worlds/$(arg world).world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>

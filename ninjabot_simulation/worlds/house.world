@@ -34,6 +34,7 @@
     
     <include>
       <uri>model://house</uri>
+      <pose>3.0 -1.0 0.0 0 0 0</pose>
     </include>
 
     <scene>
