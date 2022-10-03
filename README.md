@@ -27,27 +27,26 @@
         <li><a href="#rviz">Rviz</a></li>
         <li><a href="#teleop">Teleop</a></li>
         <li><a href="#slam">SLAM</a></li>
-        <li><a href="#simulation-navigation">Navigation</a></li>
+        <li><a href="#navigation">Navigation</a></li>
       </ul>
     </li>
     <li>
       <a href="#real-robot">Real Robot</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#ssh-connection">SSH connection local & wifi</a></li>
-        <li><a href="#wifi">Add or remove wifi</a></li>
-        <li><a href="#network-configuration"> Network configuration for robot & workstation</a></li>
-        <li><a href="#real-rviz">Rviz</a></li>
-        <li><a href="#real-teleop">Teleop</a></li>
-        <li><a href="#real-mapping">Mapping</a></li>
-        <li><a href="#real-navigation">Navigation</a></li>
+        <li><a href="#Connecting_to_robot">Connecting to robot</a></li>
+        <li><a href="#add_or_remove_wifi">Add or remove wifi</a></li>
+        <li><a href="#network_configuration">Network configuration</a></li>
+        <li><a href="#ninjabot_service">Ninjabot service</a></li>
+        <li><a href="#joystic_control">Joystic control</a></li>
+        <li><a href="#mapping">Mapping</a></li>
+        <li><a href="#ninjabot_navigation">Navigation</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#references">References</a></li>
   </ol>
 </details>
 
@@ -108,6 +107,7 @@ Ninjabot Gazebo simulation.
 ```sh
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
+
 keyboard commands to Move robo
 
 ```sh
@@ -125,49 +125,85 @@ anything else : stop
 
 CTRL-C to quit
 ```
+
 2. JoyStick Twist teleop.
+
 ```sh
 roslaunch ninjabot_teleop joy_teleop.launch
 ```
 
 3. Rqt robot steering
+
 ```sh
 rosrun rqt_robot_steering rqt_robot_steering
 ```
+
 <img align="center" src="images/rqt_robot_steering.png" alt="Logo" >
 <!-- ROADMAP -->
 
 ### SLAM
+
 1. Launch Gazebo simulation.
 2. Launching SLAM mapping.
+
 ```sh
 roslaunch ninjabot_mapping ninjabot_mapping.launch
 ```
+
 move robo with twist teleop for mapping entire area.
 <img align="center" src="images/slam.png" alt="Logo" >
 
 3. Save map.
+
 ```sh
 roslaunch ninjabot_mapping save_map.launch map_name:=<NEW_MAP_NAME>
 ```
-New map will be saved in *catkin_ws/src/ninjabot/ninjabot_mapping/maps/* folder with given map_name. *<b>(Please give map name same as world name for easy convinence for launching navigation.)</b>*
+
+New map will be saved in _catkin_ws/src/ninjabot/ninjabot_mapping/maps/_ folder with given map*name. *<b>(Please give map name same as world name for easy convinence for launching navigation.)</b>\_
 
 eg:
+
 ```sh
 roslaunch ninjabot_mapping save_map.launch map_name:=house
 ```
 
 ### Navigation
+
 1. Close all gazebo and rviz windows.
 
 2. Launch Navigation
+
 ```sh
 roslaunch ninjabot_navigation ninjabot_navigation.launch world:=house
 ```
+
 (world name is same for both gazebo world and map name)
 <img align="center" src="images/navigation.png" alt="Logo" >
 
 ## Real-Robot
+
+### Prerequisites
+
+1. NinjaBot Physical robot
+2. Wifi router
+3. RJ45 Lan Cable
+4. PC wih ROS installed
+5. Joystick (optional)
+
+### Connecting_to_robot
+
+### Add_or_Remove_wifi
+
+### Network_configuration
+
+### Ninjabot_service
+
+### Joystic_control
+
+### Mapping
+
+### Ninjabot_Navigation
+
 ## Roadmap
 
 - [ ] Add Sample Codes package
@@ -197,19 +233,10 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<!-- CONTACT -->
+<!-- References -->
 
-## Contact
+## References
 
-MNV Chaitanya Kumar - nagachaitanya948@gmail.com
-
-Project Link: [https://github.com/chaitanya-mandala/ninjabot](https://github.com/chaitanya-mandala/ninjabot)
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- []()
 - []()
 - []()
 
