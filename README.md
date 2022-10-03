@@ -26,7 +26,7 @@
         <li><a href="#gazebo">Gazebo</a></li>
         <li><a href="#rviz">Rviz</a></li>
         <li><a href="#teleop">Teleop</a></li>
-        <li><a href="#mapping">Mapping</a></li>
+        <li><a href="#slam">SLAM</a></li>
         <li><a href="#simulation-navigation">Navigation</a></li>
       </ul>
     </li>
@@ -93,7 +93,9 @@ Ninjabot Gazebo simulation.
 
 #### Rviz
 
-1. Launch Rviz after running gazebo simulation.
+1. Launch Gazebo simulation.
+
+2. Launching Rviz.
    ```sh
    roslaunch ninjabot_simulation rviz.launch
    ```
@@ -135,7 +137,37 @@ rosrun rqt_robot_steering rqt_robot_steering
 <img align="center" src="images/rqt_robot_steering.png" alt="Logo" >
 <!-- ROADMAP -->
 
-### Mapping
+### SLAM
+1. Launch Gazebo simulation.
+2. Launching SLAM mapping.
+```sh
+roslaunch ninjabot_mapping ninjabot_mapping.launch
+```
+move robo with twist teleop for mapping entire area.
+<img align="center" src="images/slam.png" alt="Logo" >
+
+3. Save map.
+```sh
+roslaunch ninjabot_mapping save_map.launch map_name:=<NEW_MAP_NAME>
+```
+New map will be saved in *catkin_ws/src/ninjabot/ninjabot_mapping/maps/* folder with given map_name. *<b>(Please give map name same as world name for easy convinence for launching navigation.)</b>*
+
+eg:
+```sh
+roslaunch ninjabot_mapping save_map.launch map_name:=house
+```
+
+### Navigation
+1. Close all gazebo and rviz windows.
+
+2. Launch Navigation
+```sh
+roslaunch ninjabot_navigation ninjabot_navigation.launch world:=house
+```
+(world name is same for both gazebo world and map name)
+<img align="center" src="images/navigation.png" alt="Logo" >
+
+## Real-Robot
 ## Roadmap
 
 - [ ] Add Sample Codes package
