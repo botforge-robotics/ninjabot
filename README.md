@@ -1,6 +1,7 @@
 <!-- PROJECT SHIELDS -->
 
-[![ROS][ros-shield]][ros-url] [![Contributors][contributors-shield]][contributors-url] [![Last Commit][last-commit-shield]][last-commit-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url]
+[![ROS][ros-shield]][ros-url] 
+<!-- [![Contributors][contributors-shield]][contributors-url] [![Last Commit][last-commit-shield]][last-commit-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] -->
 
 <!-- PROJECT LOGO -->
 
@@ -61,7 +62,7 @@ Ninjabot Gazebo simulation.
 1. Clone the repo to ~/catkin_ws/src
    ```sh
    roscd && cd .. && cd src
-   git clone https://github.com/chaitanya-mandala/ninjabot.git
+   git clone https://gitlab.com/UnrealRobotics/ninjabot.git
    ```
 2. Install ros dependency packages, Execute in ~/catkin_Ws
    ```sh
@@ -353,7 +354,7 @@ roslaunch ninjabot_navigation navigation_rviz.launch
 <!-- - [ ] Feature 3
   - [ ] Nested Feature -->
 
-See the [open issues](https://github.com/chaitanya-mandala/ninjabot/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://gitlab.com/UnrealRobotics/ninjabot/-/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -386,7 +387,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/chaitanya-mandala/ninjabot.svg?style=for-the-badge
-[contributors-url]: https://github.com/chaitanya-mandala/ninjabot/graphs/contributors
+[contributors-url]: https://gitlab.com/UnrealRobotics/ninjabot/-/graphs/noetic
 [last-commit-shield]: https://img.shields.io/github/last-commit/chaitanya-mandala/ninjabot/noetic.svg?style=for-the-badge
 [last-commit-url]: https://github.com/chaitanya-mandala/ninjabot/commit/noetic
 [stars-shield]: https://img.shields.io/github/stars/chaitanya-mandala/ninjabot.svg?style=for-the-badge
