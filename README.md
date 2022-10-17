@@ -181,10 +181,10 @@ roslaunch ninjabot_mapping save_map.launch map_name:=house
 2. Launch Navigation
 
 ```sh
-roslaunch ninjabot_navigation ninjabot_navigation.launch map:=house
+roslaunch ninjabot_navigation ninjabot_navigation.launch map:=house localPlanner:=teb
 ```
-
-(map name is same for both gazebo world and map name)
+(~map, name of map avilable in ninjabot_mapping/maps, same for both gazebo world and map name)
+(~localPlanner:=teb or dwa, for Timed Elastic Band localplanner or Dynamic Window Approach planner. default is "dwa")
 <img align="center" src="images/navigation.png" alt="Logo" >
 
 ## Real-Robot
@@ -339,8 +339,10 @@ roslaunch ninjabot_mapping save_map.launch map_name:=house
 1. Launch navigation node in robot
 
 ```sh
-roslaunch ninjabot_navigation real_navigation.launch map:=house
+roslaunch ninjabot_navigation real_navigation.launch map:=house localPlanner:=teb
 ```
+(~map, name of map avilable in ninjabot_mapping/maps)
+(~localPlanner:=teb or dwa, for Timed Elastic Band localplanner or Dynamic Window Approach planner. default is "dwa")
 
 2. Open rviz in workstation
 

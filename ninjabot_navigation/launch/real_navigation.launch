@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="map" default="house"/>
+	<arg name="localPlanner" default="dwa"/>
 	<!-- map server -->
 	<include file="$(find ninjabot_navigation)/launch/map_server.launch">
 		<arg name="map_name" default="$(arg map)"/>
@@ -13,6 +14,6 @@
 
 	<!-- move base -->
 	<include file="$(find ninjabot_navigation)/launch/move_base.launch">
-        <arg name="localPlanner" default="$(find ninjabot_navigation)/config/real_base_local_planner_params.yaml"/>
+        <arg name="localPlanner" value="$(arg localPlanner)"/>
 	</include>
 </launch>

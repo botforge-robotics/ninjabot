@@ -2,6 +2,7 @@
 <launch>
 	<arg name="gui" default="true"/>
 	<arg name="map" default="house"/>
+	<arg name="localPlanner" default="dwa"/>
 	<arg name="rvizconfig" default="$(find ninjabot_navigation)/rviz/navigation.rviz"/>
 	<param name="use_gui" value="$(arg gui)"/>
 	
@@ -23,5 +24,6 @@
 
 	<!-- move base -->
 	<include file="$(find ninjabot_navigation)/launch/move_base.launch">
+		<arg name="localPlanner" value="$(arg localPlanner)"/>
 	</include>
 </launch>

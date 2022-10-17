@@ -6,11 +6,10 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /TF1/Tree1
-        - /Local Map1/Planner1
-        - /Global MapTeb1
+        - /Global Map1
+        - /Local Map1
+        - /Local Map1/Costmap1/Status1
         - /Global MapTeb1/Costmap1
-        - /Global MapTeb1/Costmap1/Status1
-        - /Local Map teb1/Planner1
       Splitter Ratio: 0.5
     Tree Height: 265
   - Class: rviz/Selection
@@ -396,7 +395,7 @@ Visualization Manager:
           Topic: /move_base/DWAPlannerROS/global_plan
           Unreliable: false
           Value: true
-      Enabled: false
+      Enabled: true
       Name: Global Map
     - Class: rviz/Group
       Displays:
@@ -443,7 +442,7 @@ Visualization Manager:
           Topic: /move_base/DWAPlannerROS/local_plan
           Unreliable: false
           Value: true
-      Enabled: false
+      Enabled: true
       Name: Local Map
     - Alpha: 1
       Arrow Length: 0.05000000074505806
@@ -514,7 +513,7 @@ Visualization Manager:
           Topic: /move_base/TebLocalPlannerROS/global_plan
           Unreliable: false
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Global MapTeb
     - Class: rviz/Group
       Displays:
@@ -561,7 +560,24 @@ Visualization Manager:
           Topic: /move_base/TebLocalPlannerROS/local_plan
           Unreliable: false
           Value: true
-      Enabled: true
+        - Alpha: 1
+          Arrow Length: 0.20000000298023224
+          Axes Length: 0.30000001192092896
+          Axes Radius: 0.009999999776482582
+          Class: rviz/PoseArray
+          Color: 252; 233; 79
+          Enabled: true
+          Head Length: 0.07000000029802322
+          Head Radius: 0.029999999329447746
+          Name: PoseArray
+          Queue Size: 10
+          Shaft Length: 0.23000000417232513
+          Shaft Radius: 0.009999999776482582
+          Shape: Arrow (Flat)
+          Topic: /move_base/TebLocalPlannerROS/teb_poses
+          Unreliable: false
+          Value: true
+      Enabled: false
       Name: Local Map teb
   Enabled: true
   Global Options:
@@ -587,7 +603,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.572744369506836
+      Distance: 12.117668151855469
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -595,15 +611,15 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.4510982036590576
-        Y: 0.9161267876625061
-        Z: 1.005017876625061
+        X: -4.088878631591797
+        Y: 2.2666707038879395
+        Z: 0.4985075294971466
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.4497959613800049
+      Pitch: 1.4447959661483765
       Target Frame: <Fixed Frame>
       Yaw: 3.418184280395508
     Saved: ~
