@@ -1,15 +1,15 @@
 footprint: [[-0.35, 0.25], [0.35, 0.25], [0.35, -0.25], [-0.35, -0.25]]
-footprint_padding: 0.04
+footprint_padding: 0.05
 
 robot_base_frame: base_link
-update_frequency: 10.0
-publish_frequency: 10.0
+update_frequency: 5.0
+publish_frequency: 5.0
 transform_tolerance: 0.75
 
-resolution: 0.05
 
-obstacle_range: 3.5
+obstacle_range: 3.0
 raytrace_range: 4.0
+
 
 # layer defnition
 static:
@@ -28,6 +28,4 @@ obstacles_laser:
       clearing: true,
     }
 
-inflation:
-  enabled: true
-  inflation_radius: 0.12
+

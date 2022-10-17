@@ -9,9 +9,9 @@ ninjabot_msgs/Ws2812b rear_right
 # true - full strip animation
 # false - individual led strip
 bool global_anim
-# 1 - steady
-# 2 - blink twice
-# 3 - blick trice
-# 4 - flow
-# 5 - dimming
+# steady        1
+# dimming       2
+# flow n cut    3
+# hue flow      4
+# rainbow flow  5
 ninjabot_msgs/Ws2812b body
