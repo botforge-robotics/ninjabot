@@ -4,11 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /TF1
         - /TF1/Frames1
         - /TF1/Tree1
         - /Global Map1
         - /Local Map1
-        - /Local Map1/Costmap1/Status1
         - /Global MapTeb1/Costmap1
       Splitter Ratio: 0.5
     Tree Height: 265
@@ -57,234 +57,182 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: true
+      Enabled: false
       Links:
-        ATC_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         All Links Enabled: true
-        BH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        BLD_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        BLH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        BLLDF_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        BRH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        BRSLDF_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        FH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FLD_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FLH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FLS_ledDiffuser_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FL_caster_frame_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FL_caster_wheel_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FRH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FRS_ledDiffuser_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FR_caster_frame_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        FR_caster_wheel_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LMBH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LMFH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LSCLD_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LSLCA_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LSLD_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Left_coinLED_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         Link Tree Style: Links in Alphabetic Order
-        RL_caster_frame_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RL_caster_whee_linkl_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RMBH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RMFH_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RR_caster_frame_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RR_caster_wheel_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RSCLD_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RSLCA_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RSLD_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Right_coinLED_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        display_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        imu_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_wheel_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        lidar_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_wheel_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: true
+      Value: false
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
+        ATC_link_1:
+          Value: false
         All Enabled: false
+        BH_link_1:
+          Value: false
+        BLD_link_1:
+          Value: false
+        BLH_link_1:
+          Value: false
+        BLLDF_link_1:
+          Value: false
+        BRH_link_1:
+          Value: false
+        BRSLDF_link_1:
+          Value: false
+        FH_link_1:
+          Value: false
+        FLD_link_1:
+          Value: false
+        FLH_link_1:
+          Value: false
+        FLS_ledDiffuser_link_1:
+          Value: false
+        FL_caster_frame_link_1:
+          Value: false
+        FL_caster_wheel_link_1:
+          Value: false
+        FRH_link_1:
+          Value: false
+        FRS_ledDiffuser_link_1:
+          Value: false
+        FR_caster_frame_link_1:
+          Value: false
+        FR_caster_wheel_link_1:
+          Value: false
+        LMBH_link_1:
+          Value: false
+        LMFH_link_1:
+          Value: false
+        LSCLD_link_1:
+          Value: false
+        LSLCA_link_1:
+          Value: false
+        LSLD_link_1:
+          Value: false
+        Left_coinLED_link_1:
+          Value: false
+        RL_caster_frame_link_1:
+          Value: false
+        RL_caster_whee_linkl_1:
+          Value: false
+        RMBH_link_1:
+          Value: false
+        RMFH_link_1:
+          Value: false
+        RR_caster_frame_link_1:
+          Value: false
+        RR_caster_wheel_link_1:
+          Value: false
+        RSCLD_link_1:
+          Value: false
+        RSLCA_link_1:
+          Value: false
+        RSLD_link_1:
+          Value: false
+        Right_coinLED_link_1:
+          Value: false
+        base_link:
+          Value: true
+        camera_link_1:
+          Value: false
+        display_link_1:
+          Value: false
+        imu_link_1:
+          Value: false
+        left_wheel_link_1:
+          Value: false
+        lidar_link_1:
+          Value: false
+        map:
+          Value: false
+        odom:
+          Value: false
+        right_wheel_link_1:
+          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_link:
+              FH_link_1:
+                ATC_link_1:
+                  {}
+                FLD_link_1:
+                  {}
+                FLH_link_1:
+                  FLS_ledDiffuser_link_1:
+                    {}
+                  LMFH_link_1:
+                    LMBH_link_1:
+                      BLH_link_1:
+                        BH_link_1:
+                          BLD_link_1:
+                            {}
+                          BRH_link_1:
+                            BRSLDF_link_1:
+                              {}
+                            RMBH_link_1:
+                              RMFH_link_1:
+                                RSLD_link_1:
+                                  {}
+                              RSLCA_link_1:
+                                RSCLD_link_1:
+                                  {}
+                        BLLDF_link_1:
+                          {}
+                      LSLCA_link_1:
+                        LSCLD_link_1:
+                          {}
+                    LSLD_link_1:
+                      {}
+                  Left_coinLED_link_1:
+                    {}
+                FRH_link_1:
+                  FRS_ledDiffuser_link_1:
+                    {}
+                  Right_coinLED_link_1:
+                    {}
+                camera_link_1:
+                  {}
+                display_link_1:
+                  {}
+              FL_caster_frame_link_1:
+                FR_caster_wheel_link_1:
+                  {}
+              FR_caster_frame_link_1:
+                FL_caster_wheel_link_1:
+                  {}
+              RL_caster_frame_link_1:
+                RL_caster_whee_linkl_1:
+                  {}
+              RR_caster_frame_link_1:
+                RR_caster_wheel_link_1:
+                  {}
+              imu_link_1:
+                {}
+              left_wheel_link_1:
+                {}
+              lidar_link_1:
+                {}
+              right_wheel_link_1:
+                {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -603,7 +551,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 12.117668151855469
+      Distance: 11.698812484741211
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -611,9 +559,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -4.088878631591797
-        Y: 2.2666707038879395
-        Z: 0.4985075294971466
+        X: -5.5549116134643555
+        Y: -1.1967073678970337
+        Z: -8.92917537689209
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
