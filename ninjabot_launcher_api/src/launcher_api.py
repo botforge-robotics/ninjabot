@@ -4,6 +4,9 @@ import roslaunch
 import rospy
 import rospkg
 r = rospkg.RosPack()
+
+# TODO: Need to convert to class objects
+
 nav_launch_file = r.get_path('ninjabot_navigation') + \
     '/launch/ninjabot_navigation.launch'
 real_nav_launch_file = r.get_path(
@@ -25,7 +28,7 @@ global map_parent, start_map_launch_flag, stop_map_launch_flag, map_running, \
 start_map_launch_flag = False
 stop_map_launch_flag = False
 map_running = False
-start_map_saverlaunch_flag = False
+start_map_saver_launch_flag = False
 stop_map_saver_launch_flag = False
 map_saver_running = False
 start_nav_launch_flag = False
@@ -44,7 +47,7 @@ def handleLauncherStart(req):
         nav_parent, start_nav_launch_flag, nav_running,\
         real_nav_parent, start_real_nav_launch_flag, real_nav_running,\
         teleop_parent, start_teleop_launch_flag, teleop_running,\
-        map_saver_parent, start_map_saver_launch_flag, map_saver_running
+            map_saver_parent, start_map_saver_launch_flag, map_saver_running
     if req.file == "map":
         if map_running:
             return NinjabotApiResponse(False)
@@ -115,7 +118,7 @@ def handleLauncherStop(req):
         stop_nav_launch_flag, nav_running,\
         stop_real_nav_launch_flag, real_nav_running,\
         stop_teleop_launch_flag, teleop_running,\
-        stop_map_saver_launch_flag, map_saver_running
+            stop_map_saver_launch_flag, map_saver_running
     if req.file == "map":
         if not map_running:
             return NinjabotApiResponse(False)
@@ -158,7 +161,7 @@ def main():
         nav_parent, start_nav_launch_flag, stop_nav_launch_flag,\
         real_nav_parent, start_real_nav_launch_flag, stop_real_nav_launch_flag,\
         teleop_parent, start_teleop_launch_flag, stop_teleop_launch_flag,\
-        map_saver_parent, start_map_saver_launch_flag, stop_map_saver_launch_flag
+            map_saver_parent, start_map_saver_launch_flag, stop_map_saver_launch_flag
     rospy.init_node('ninjabot_launcher_api_server')
     rospy.Service('ninjabot_launcher_api_start',
                   NinjabotApi, handleLauncherStart)
