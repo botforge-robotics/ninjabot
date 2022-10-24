@@ -16,4 +16,7 @@
 	<include file="$(find ninjabot_navigation)/launch/move_base.launch">
         <arg name="localPlanner" value="$(arg localPlanner)"/>
 	</include>
+	<!-- robot pose publisher -->
+  <node name="robot_pose_publisher" pkg="robot_pose_publisher" type="robot_pose_publisher"/>
+  
 </launch>

@@ -6,11 +6,11 @@
 	<arg name="rvizconfig" default="$(find ninjabot_navigation)/rviz/navigation.rviz"/>
 	<param name="use_gui" value="$(arg gui)"/>
 	
-	<include file="$(find ninjabot_simulation)/launch/gazebo.launch">
-		<arg name="world" default="$(arg map)"/>
+	<include file="$(find ninjabot_simulation)/launch/gazebo.launch" if="$(arg gui)">
+		<arg name="world" default="$(arg map)" />
 	</include>
 	
-	<node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+	<node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true" if="$(arg gui)"/>
 	
 	<!-- map server -->
 	<include file="$(find ninjabot_navigation)/launch/map_server.launch">
@@ -26,4 +26,7 @@
 	<include file="$(find ninjabot_navigation)/launch/move_base.launch">
 		<arg name="localPlanner" value="$(arg localPlanner)"/>
 	</include>
+	<!-- robot pose publisher -->
+  <node name="robot_pose_publisher" pkg="robot_pose_publisher" type="robot_pose_publisher"/>
+  
 </launch>
