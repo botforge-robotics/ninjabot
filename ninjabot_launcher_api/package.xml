@@ -46,6 +46,10 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
+  <exec_depend>tf2_web_republisher</exec_depend>
+  <exec_depend>rosbridge_suite</exec_depend>
+  <exec_depend>robot_pose_publisher</exec_depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
