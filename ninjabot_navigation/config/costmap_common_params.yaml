@@ -7,8 +7,8 @@ publish_frequency: 5.0
 transform_tolerance: 0.75
 
 
-obstacle_range: 3.0
-raytrace_range: 4.0
+obstacle_range: 5.0
+raytrace_range: 5.0
 
 
 # layer defnition

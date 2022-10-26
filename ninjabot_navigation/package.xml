@@ -55,6 +55,7 @@
   <exec_depend>ninjabot_simulation</exec_depend>
   <exec_depend>teb_local_planner</exec_depend>
   <exec_depend>dwa_local_planner</exec_depend>
+  <exec_depend>global_planner</exec_depend>
   
   <!-- The export tag contains other, unspecified, tags -->
   <export>

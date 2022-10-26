@@ -5,7 +5,7 @@
   <arg name="model" default="$(find ninjabot_description)/urdf/dexbot.xacro"/>
   <arg name="x_pos" default="0.0"/>
   <arg name="y_pos" default="0.0"/>
-  <arg name="z_pos" default="0.0"/>
+  <arg name="z_pos" default="0.2"/>
   <arg name="robot_name" default="ninjabot"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
