@@ -1,4 +1,4 @@
-# base_global_planner:  "navfn/NavfnROS"
+#base_global_planner:  "navfn/NavfnROS"
 base_global_planner: "global_planner/GlobalPlanner"
 
 NavfnRos:

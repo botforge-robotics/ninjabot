@@ -1,6 +1,7 @@
 global_costmap:
   global_frame: map
   rolling_window: false
+  static_map: true
 
   inflation:
     enabled: true
@@ -8,5 +9,6 @@ global_costmap:
 
   plugins:
     - {name: static, type: "costmap_2d::StaticLayer"}
+    - {name: obstacles_layer, type: "costmap_2d::VoxelLayer"}
     - {name: inflation, type: "costmap_2d::InflationLayer"}
     

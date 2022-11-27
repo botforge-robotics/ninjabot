@@ -8,9 +8,9 @@
 
     <param name="two_d_mode" value="true"/>
 
-    <remap from="odometry/filtered" to="/ninjabot/odom_enc_imu"/>
+    <remap from="odometry/filtered" to="odom"/>
 
-    <!-- <param name="map_frame" value="map"/> -->
+    <param name="map_frame" value="map"/>
 
     <param name="odom_frame" value="odom"/>
 
@@ -20,7 +20,7 @@
 
     <param name="transform_time_offset" value="0.0"/>
 
-    <param name="odom0" value="/ninjabot/odom_enc"/>
+    <param name="odom0" value="odom_enc"/>
 
     <param name="odom0_differential" value="false" />
 
@@ -36,7 +36,7 @@
 
                                     false, false, false]</rosparam>
 
-    <param name="imu0" value="/ninjabot/imu"/>
+    <param name="imu0" value="imu/data"/>
 
     <param name="imu0_differential" value="false" />
 
@@ -57,8 +57,6 @@
     <param name="print_diagnostics" value="true" />
 
     <param name="debug" value="false" />
-
-    <param name="debug_out_file" value="debug_odom_ekf.txt" />
 
 </node>
 </launch>
