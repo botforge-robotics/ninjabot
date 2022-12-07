@@ -86,7 +86,7 @@ TebLocalPlannerROS:
       
   # Obstacles
       
-  min_obstacle_dist: 0.2
+  min_obstacle_dist: 0.35
   include_costmap_obstacles: False
   costmap_obstacles_behind_robot_dist: 1.0
   obstacle_poses_affected: 30
@@ -107,7 +107,7 @@ TebLocalPlannerROS:
   weight_acc_lim_theta: 1
   weight_kinematics_nh: 1000
   weight_kinematics_forward_drive: 1000
-  weight_kinematics_turning_radius: 1
+  weight_kinematics_turning_radius: 10
   weight_optimaltime: 1
   weight_obstacle: 50
   weight_dynamic_obstacle: 10 # not in use yet

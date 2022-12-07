@@ -127,9 +127,9 @@ def main():
                 mag_msg.magnetic_field.x = mx*MagFieldConversion_uT_T
                 mag_msg.magnetic_field.y = my*MagFieldConversion_uT_T
                 mag_msg.magnetic_field.z = mz*MagFieldConversion_uT_T
-                mag_msg.magnetic_field_covariance[0] = 0.01
-                mag_msg.magnetic_field_covariance[4] = 0.01
-                mag_msg.magnetic_field_covariance[8] = 0.01
+                # mag_msg.magnetic_field_covariance[0] = 0.01
+                # mag_msg.magnetic_field_covariance[4] = 0.01
+                # mag_msg.magnetic_field_covariance[8] = 0.01
 
                 # create imu msg
                 q0 = 1.0  # W
@@ -145,31 +145,31 @@ def main():
                 imu_msg.orientation.y = q1
                 imu_msg.orientation.z = q2
                 imu_msg.orientation.w = q3
-                imu_msg.orientation_covariance[0] = 0.01
-                imu_msg.orientation_covariance[4] = 0.01
-                imu_msg.orientation_covariance[8] = 0.01
+                # imu_msg.orientation_covariance[0] = 0.01
+                # imu_msg.orientation_covariance[4] = 0.01
+                # imu_msg.orientation_covariance[8] = 0.01
 
                 gx, gy, gz = mpu.readGyroscopeMaster()
                 imu_msg.angular_velocity.x = math.radians(gx)
                 imu_msg.angular_velocity.y = math.radians(gy)
                 imu_msg.angular_velocity.z = math.radians(gz)
-                imu_msg.angular_velocity_covariance[0] = 0.03
-                imu_msg.angular_velocity_covariance[4] = 0.03
-                imu_msg.angular_velocity_covariance[8] = 0.03
+                # imu_msg.angular_velocity_covariance[0] = 0.03
+                # imu_msg.angular_velocity_covariance[4] = 0.03
+                # imu_msg.angular_velocity_covariance[8] = 0.03
 
                 ax, ay, az = mpu.readAccelerometerMaster()
                 imu_msg.linear_acceleration.x = ax*G
                 imu_msg.linear_acceleration.y = ay*G
                 imu_msg.linear_acceleration.z = az*G
-                imu_msg.linear_acceleration_covariance[0] = 10
-                imu_msg.linear_acceleration_covariance[4] = 10
-                imu_msg.linear_acceleration_covariance[8] = 10
+                # imu_msg.linear_acceleration_covariance[0] = 10
+                # imu_msg.linear_acceleration_covariance[4] = 10
+                # imu_msg.linear_acceleration_covariance[8] = 10
 
-                temp_msg.header.frame_id = 'imu_link_1'
-                temp_msg.temperature = mpu.readTemperatureMaster()
-                temp_msg.header.stamp = rospy.get_rostime()
+                temprature_msg.header.frame_id = 'imu_link_1'
+                temprature_msg.temperature = mpu.readTemperatureMaster()
+                temprature_msg.header.stamp = rospy.get_rostime()
 
-                temp_pub.publish(temp_msg)
+                temp_pub.publish(temprature_msg)
                 imu_pub.publish(imu_msg)
                 mag_pub.publish(mag_msg)
                 rate.sleep()

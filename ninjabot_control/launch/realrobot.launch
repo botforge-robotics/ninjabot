@@ -1,27 +1,59 @@
-<?xml version="1.0"?>
 <launch>
 <!-- serial nodes -->
     <include file="$(find ninjabot_control)/launch/arduino_serial.launch" />
+
 <!-- USB CAMERA -->
     <node name="usb_cam" pkg="usb_cam" type="usb_cam_node"  output="screen" >
         <param name="pixel_format" value="yuyv" />
+        <param name="camera_frame_id" value="camera_link_1" />
     </node>
+
 <!-- ROBOT Description -->
     <param name="robot_description" command="$(find xacro)/xacro $(find ninjabot_description)/urdf/ninjabot.xacro"/>
+
 <!-- Joint states -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"></node>
-    
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"></node>  
+      
+<!-- Encoder odom publish -->
     <rosparam param="ticks_meter">1800</rosparam>
     <node name="diff_tf" pkg="differential_drive" type="diff_tf.py"  output="log">
         <rosparam param="rate">20</rosparam>
         <rosparam param="base_width">0.245</rosparam>
         <remap from="/odom" to="/odom_enc"/>
     </node>
+
 <!-- Initializer-->
     <node name="initializer_node" pkg="ninjabot_control" type="initialize_imu_pub.py"/>
+    
+<!-- Complementary filter node -->
+    <node name="imu_filter_node_for_orientation" pkg="imu_complementary_filter" type="complementary_filter_node" >
+        <rosparam param="use_mag">true</rosparam>
+    </node>
 
-    <!-- RP lidar -->
-    <!-- <include file="$(find ninjabot_control)/launch/rplidar.launch"></include> -->
+<!-- fuse sensor -->
+    <include file="$(find ninjabot_control)/launch/sensorfuse.launch"></include>
+
+<!-- RP lidar -->
+    <include file="$(find ninjabot_control)/launch/rplidar.launch"></include>
+    
+<!-- Joy pad -->
+    <include file="$(find ninjabot_teleop)/launch/joy_control.launch"></include>
+
+<!-- GUI API -->
+    <node name="launcher_api_node" pkg="ninjabot_launcher_api" type="launcher_api.py"/>
+
+<!-- web tf2 -->
+    <node name="tf2_web_republisher_node" pkg="tf2_web_republisher" type="tf2_web_republisher"/>
+
+<!-- ros web bridge -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"></include>
+
+<!-- image web stream -->
+    <node name="web_video_server_node" pkg="web_video_server" type="web_video_server">
+        <param name="port" value="9000" />
+        <param name="default_transport" value="compressed" />
+    </node>
 
 </launch>
+
