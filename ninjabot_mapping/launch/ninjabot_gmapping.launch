@@ -1,13 +1,8 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="scan_topic" default="ninjabot/scan" />
-
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
     <rosparam command="load" file="$(find ninjabot_mapping)/config/gmapping_params.yaml"/>
     <remap from="scan" to="$(arg scan_topic)"/>
   </node>
-
-<!-- robot pose publisher -->
-  <node name="robot_pose_publisher" pkg="robot_pose_publisher" type="robot_pose_publisher"/>
-  
 </launch>

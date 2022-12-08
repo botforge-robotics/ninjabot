@@ -26,7 +26,7 @@
 
     <param name="odom0_queue_size" value="20" />
 
-    <rosparam param="odom0_config">[false,  false, false,
+    <rosparam param="odom0_config">[true,  true, false,
 
                                     false, false, true,
 
@@ -52,11 +52,15 @@
 
                                     false , false, true,
 
-                                    true, false, false]</rosparam>
+                                    true, true, false]</rosparam>
 
     <param name="print_diagnostics" value="true" />
 
     <param name="debug" value="false" />
 
+    <param name="pose" value="robot_pose"/>
+    <param name="twist" value="cmd_vel"/>
+
+    
 </node>
 </launch>
