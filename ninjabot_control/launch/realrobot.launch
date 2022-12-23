@@ -33,7 +33,10 @@
     </node>
 
 <!-- fuse sensor -->
-    <include file="$(find ninjabot_control)/launch/sensorfuse.launch" if="$(arg fuse_odom)"></include>
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_odom_node" output="log" if="$(arg fuse_odom)">
+        <rosparam file="$(find ninjabot_control)/params/ekf_params.yaml" command="load" />
+        <remap from="odometry/filtered" to="odom"/>
+    </node>
 
 <!-- RP lidar -->
     <include file="$(find ninjabot_control)/launch/rplidar.launch"></include>
@@ -53,7 +56,7 @@
 <!-- image web stream -->
     <node name="web_video_server_node" pkg="web_video_server" type="web_video_server" output="screen">
         <param name="port" value="9000" />
-        <param name="default_transport" value="compressed" />
+        <param name="default_transport" value="compressed"/>
     </node>
   
 <!-- robot pose publisher -->

@@ -9,6 +9,7 @@
 <h3 align="center">NINJABOT</h3>
 <h6 align="center">Autonomous Mobile Robot</h6>
  <a href="https://github.com/chaitanya-mandala/ninjabot">
+    <img src="images/ninjabot.png" alt="Logo" height="180">
     <img src="images/front.jpg" alt="Logo" height="180">
     <img src="images/back.jpg" alt="Logo" height="180">
     <img src="images/eyes.jpg" alt="Logo" height="180">
