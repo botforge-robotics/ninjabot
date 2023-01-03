@@ -22,4 +22,9 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
   
+  <!-- image web stream -->
+    <node name="web_video_server_node" pkg="web_video_server" type="web_video_server" output="screen">
+        <param name="port" value="9000" />
+        <param name="default_transport" value="compressed"/>
+    </node>
 </launch>
